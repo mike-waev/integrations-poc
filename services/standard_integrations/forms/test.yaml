@@ -1,0 +1,22 @@
+# Will be sent with API-Key / Oauth, deployment-id/group-id, and the name of the integration.
+# This will pull out the keys and values to be put in record payload
+
+# This will pull the selected object and destructure it into the record payload
+# If any keys are duplicated, they will be overwritten. These values can be re-added explicitly with KeyValue.
+Blob:
+  - form_response.free_form_answers
+  - form_response.free_form_answers_2
+
+# These will pull specific keys and values into the record payload
+KeyValue:
+  # can add static key values, whether it be to keep old values or to directly assign:
+  form_response.free_form_answers.question3:
+    key: question6
+  # Define dynamic keys, so that we can pull the value of one field to assign it as the dictionary key
+  form_response.user_answer:
+    dynamicKey: type
+    value: submission
+  # will iterate through all the values in the array at the form_response.user_answers path.
+  form_response.user_answers:
+    dynamicKey: user_key
+    value: user_value

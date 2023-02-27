@@ -1,4 +1,5 @@
 import type { Context, Service, ServiceSchema } from "moleculer";
+import { mapWebhookResponse } from "./standard_integrations";
 
 export interface ActionHelloParams {
 	name: string;
@@ -42,8 +43,9 @@ const GreeterService: ServiceSchema<GreeterSettings> = {
 				method: "GET",
 				path: "/hello",
 			},
-			handler(this: GreeterThis/* , ctx: Context */): string {
-				return `Hello ${this.settings.defaultName}`;
+			handler(this: GreeterThis /* , ctx: Context */): string {
+				return JSON.stringify(mapWebhookResponse());
+				// return `Hello ${this.settings.defaultName}`;
 			},
 		},
 
@@ -53,6 +55,7 @@ const GreeterService: ServiceSchema<GreeterSettings> = {
 				name: "string",
 			},
 			handler(this: GreeterThis, ctx: Context<ActionHelloParams>): string {
+				mapWebhookResponse();
 				return `Welcome, ${ctx.params.name}`;
 			},
 		},

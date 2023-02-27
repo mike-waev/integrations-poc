@@ -1,0 +1,32 @@
+{
+  "event_id": "LtWXD3crgy",
+  "event_type": "form_response",
+  "form_response": {
+    "form_id": "lT4Z3j",
+    "free_form_answers": {
+      "question1": "a1",
+      "question2": true,
+      "question3": ["vanilla", "chocolate", "strawberry"]
+    },
+    "free_form_answers_2": {
+      "question4": "f1",
+      "question5": false,
+      "question3": ["red", "blue", "green"]
+    },
+    "user_answer": { "type": "email", "submission": "test@test.com" },
+    "user_answers": [
+      {
+        "user_key": "user_1",
+        "user_value": "test@email.com"
+      },
+      {
+        "user_key": "user_2",
+        "user_value": false
+      },
+      {
+        "user_key": "user_2",
+        "user_value": ["small", "medium", "large"]
+      }
+    ]
+  }
+}
